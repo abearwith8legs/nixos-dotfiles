@@ -7,6 +7,9 @@
     full-rebuild = "git -C /etc/nixos add -A && (git -C /etc/nixos commit -m 'System update' || true) && sudo nixos-rebuild switch --flake /etc/nixos#(hostname) && git -C /etc/nixos push";
     rebuild = "git -C /etc/nixos add -A && sudo nixos-rebuild switch --flake /etc/nixos#(hostname)";
     sync-rebuild = "git -C /etc/nixos pull && rebuild";
+    git-status = "git -C /etc/nixos status";
+    git-push = "git -C /etc/nixos push";
+    git-pull = "git -C /etc/nixos pull"
   };
 };
 
