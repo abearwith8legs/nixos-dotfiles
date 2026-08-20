@@ -15,9 +15,15 @@
     kiwix-tools
     freeplane
     polyglot
-    emulationstation-de
 
     # Not included here:
+    # - `emulationstation-de` — removed from nixpkgs: its freeimage
+    #   dependency is unbuildable/insecure with no fix upstream, so the
+    #   permittedInsecurePackages entry in nix-settings.nix can't save
+    #   it (that only allowlists insecure packages, not broken builds).
+    #   No drop-in nixpkgs replacement; the project now ships as an
+    #   AppImage directly if you want it back later — programs.appimage
+    #   is already enabled (modules/system/programs.nix).
     # - `notepadqq` — removed from nixpkgs in 2023 (upstream stopped
     #   maintaining it), which is what broke the first build. Kate
     #   (above) plus geany/vscodium (shared list) already cover the
