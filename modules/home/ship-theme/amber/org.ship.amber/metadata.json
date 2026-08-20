@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Rowan Wolfe"
+            }
+        ],
+        "Category": "Plasma Look And Feel",
+        "Description": "Cassette-futurist amber ship computer theme",
+        "Icon": "preferences-desktop-theme",
+        "Id": "org.ship.amber",
+        "Name": "Ship Amber",
+        "Version": "0.1.0",
+        "Website": ""
+    }
+}

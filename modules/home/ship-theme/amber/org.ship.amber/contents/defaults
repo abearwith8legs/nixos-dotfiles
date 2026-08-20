@@ -1,0 +1,11 @@
+[kdeglobals][General]
+ColorScheme=Ship-Amber
+
+[kdeglobals][Icons]
+Theme=breeze-dark
+
+[kdeglobals][KDE]
+widgetStyle=kvantum
+
+[plasmarc][Theme]
+name=default
