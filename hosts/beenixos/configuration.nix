@@ -9,7 +9,6 @@
     ../../modules/system/audio.nix
     ../../modules/system/boot.nix
     ../../modules/system/desktop.nix
-    ../../modules/system/filesystems.nix
     ../../modules/system/gaming.nix
     ../../modules/system/locale.nix
     ../../modules/system/networking.nix
