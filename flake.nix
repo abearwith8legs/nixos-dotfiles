@@ -53,7 +53,7 @@
   in {
     nixosConfigurations = {
       beenixos = mkHost "beenixos";
-      bee_nixos = mkHost "bee_nixos"; # the laptop
+      beepd = mkHost "beepd"; # the laptop
     };
   };
 }

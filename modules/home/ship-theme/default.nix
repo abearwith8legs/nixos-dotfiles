@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 # Plasma-only. This module is imported for every home-manager host
-# (modules/home/default.nix), including bee_nixos which runs GNOME —
+# (modules/home/default.nix), including beepd which runs GNOME —
 # the build still succeeds there since this just copies static files
 # and packages a wrapper script, but running `ship-theme amber` on
 # GNOME will fail: plasma-apply-lookandfeel, kvantummanager, and

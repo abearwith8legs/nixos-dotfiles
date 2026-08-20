@@ -28,7 +28,7 @@
   # Matches the machine's current hostname — the rebuild/full-rebuild
   # fish aliases build the flake target from `hostname`, so this needs
   # to stay in sync with the nixosConfigurations attr name in flake.nix.
-  networking.hostName = "bee_nixos";
+  networking.hostName = "beepd";
 
   # Pinned to this machine's original install release (24.05) — do not
   # bump to match beenixos or the current channel.

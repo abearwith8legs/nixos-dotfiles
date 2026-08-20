@@ -1,7 +1,7 @@
 # nixos config
 
 Flake-based NixOS + home-manager config, two hosts: `beenixos` (desktop,
-Plasma) and `bee_nixos` (laptop, GNOME).
+Plasma) and `beepd` (laptop, GNOME).
 
 ## Layout
 
@@ -14,9 +14,9 @@ hosts/<name>/
                                 stateVersion, power, swap, etc.)
   desktop.nix                  which DE this host runs (Plasma vs GNOME)
   <other host-only files>      e.g. beenixos/filesystems.nix (extra
-                                drives), bee_nixos/graphics.nix (NVIDIA
-                                prime), bee_nixos/security.nix (fprintd),
-                                bee_nixos/storage.nix, bee_nixos/packages.nix
+                                drives), beepd/graphics.nix (NVIDIA
+                                prime), beepd/security.nix (fprintd),
+                                beepd/storage.nix, beepd/packages.nix
 modules/system/*.nix   shared system config, safe to import on any host
 modules/home/           home-manager config for user `rowan`, shared
                          (note: ship-theme is Plasma-only, see its header)
@@ -32,21 +32,21 @@ which DE it runs), it goes in that host's `hosts/<name>/` files.
 
 `system.stateVersion` in particular must stay pinned to whatever
 release each machine was originally installed with (`26.05` for
-beenixos, `24.05` for bee_nixos) — never bump it to match another
+beenixos, `24.05` for beepd) — never bump it to match another
 host or the current channel.
 
 ## Known issues carried over from the laptop's old config
 
-- `hosts/bee_nixos/storage.nix` has a udev rule targeting a disk UUID
+- `hosts/beepd/storage.nix` has a udev rule targeting a disk UUID
   that doesn't match the current `/mnt/storage` UUID — likely stale
   from before that drive was reformatted. Run `lsblk -f` on the laptop
   and fix whichever side is wrong.
-- `hosts/bee_nixos/graphics.nix`'s eGPU specialisation sets
+- `hosts/beepd/graphics.nix`'s eGPU specialisation sets
   `KWIN_DRM_DEVICES`, which is a Plasma/KWin-specific env var and does
   nothing under GNOME's Mutter compositor. Harmless no-op for now;
   worth removing or replacing if the eGPU specialisation is actually
   used.
-- `hosts/bee_nixos/packages.nix` still installs plain `floorp` while
+- `hosts/beepd/packages.nix` still installs plain `floorp` while
   the shared package list installs a pinned `floorp-bin` — two
   different derivations of the same browser. Pick one.
 
@@ -87,7 +87,7 @@ to another machine:
    ```
    sudo git clone <url> /etc/nixos
    cd /etc/nixos
-   sudo nixos-rebuild switch --flake .#bee_nixos   # or whichever host
+   sudo nixos-rebuild switch --flake .#beepd   # or whichever host
    ```
 3. From then on, `rebuild` / `full-rebuild` on either machine commit
    locally and rebuild against their own `hostname` — pull/push
