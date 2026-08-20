@@ -23,7 +23,7 @@
   ];
 
   # --- HOST IDENTITY ---
-  networking.hostName = "bee_pc";
+  networking.hostName = "beenixos";
 
   # Pinned to this machine's original install release — do not bump to
   # match another host or the current channel version.
