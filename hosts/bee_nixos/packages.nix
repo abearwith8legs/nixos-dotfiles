@@ -9,7 +9,6 @@
   environment.systemPackages = with pkgs; [
     rustdesk-flutter
     kitty
-    notepadqq
     kdePackages.kate
     xfce.thunar
     kiwix
@@ -19,6 +18,10 @@
     emulationstation-de
 
     # Not included here:
+    # - `notepadqq` — removed from nixpkgs in 2023 (upstream stopped
+    #   maintaining it), which is what broke the first build. Kate
+    #   (above) plus geany/vscodium (shared list) already cover the
+    #   GUI-text-editor niche it filled.
     # - `flatpak` package + a second `services.flatpak.enable` — the
     #   shared modules/system/services.nix already enables the flatpak
     #   service, which pulls in the CLI on its own.
