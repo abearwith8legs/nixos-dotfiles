@@ -9,7 +9,7 @@
     sync-rebuild = "git -C /etc/nixos pull && rebuild";
     git-status = "git -C /etc/nixos status";
     git-push = "git -C /etc/nixos push";
-    git-pull = "git -C /etc/nixos pull"
+    git-pull = "git -C /etc/nixos pull";
   };
 };
 
