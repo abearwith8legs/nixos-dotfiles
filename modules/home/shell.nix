@@ -8,9 +8,9 @@
     # networking.hostName (per-host) to match the nixosConfigurations
     # attr name in flake.nix (also per-host) for either alias to work.
     shellAliases = {
-      full-rebuild = "sudo git -C /etc/nixos add -A && sudo git -C /etc/nixos commit -m 'System update' || true && sudo nixos-rebuild switch --flake /etc/nixos#(hostname)";
+      full-rebuild = "sudo git -C /etc/nixos add -A && (sudo git -C /etc/nixos commit -m 'System update' || true) && sudo nixos-rebuild switch --flake /etc/nixos#(hostname) && git -C /etc/nixos push";
       rebuild = "sudo git -C /etc/nixos add -A && sudo nixos-rebuild switch --flake /etc/nixos#(hostname)";
-    };
+};
   };
 
   programs.starship = {
