@@ -10,6 +10,7 @@
     shellAliases = {
       full-rebuild = "sudo git -C /etc/nixos add -A && sudo git -C /etc/nixos commit -m 'System update' || true && sudo nixos-rebuild switch --flake /etc/nixos#(hostname)";
       rebuild = "sudo git -C /etc/nixos add -A && sudo nixos-rebuild switch --flake /etc/nixos#(hostname)";
+      sync-rebuild = "git -C /etc/nixos pull && rebuild";
     };
   };
 
