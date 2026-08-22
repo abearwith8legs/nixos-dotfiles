@@ -40,6 +40,7 @@ in {
     inkscape
     feishin
     spotatui
+    imgbrd-grabber
 
     # Development & Runtimes
     pythonEnv
