@@ -30,5 +30,13 @@ in
   enabledExtensions = with spicePkgs.extensions; [
     # your extensions
   ];
+
+  spicetifyConfig = {
+    current_theme = "marketplace";
+    color_scheme = "";
+    inject_css = true;
+    replace_colors = true;
+    overwrite_assets = true;
+  };
 };
 }
