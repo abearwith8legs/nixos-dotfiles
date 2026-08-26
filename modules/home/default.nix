@@ -17,18 +17,18 @@ in
   programs.home-manager.enable = true;
 
   programs.spicetify = {
-    enable = true;
+  enable = true;
 
-    enabledExtensions = with spicePkgs.extensions; [
-      shuffle
-      seekSong
-      spotifyGenres
-      wikify
-      romajiConvert
-    ];
+  # Choose any bundled theme directly:
+  theme = spicePkgs.themes.catppuccin;
+  colorScheme = "mocha";
 
-    enabledCustomApps = [
-      spicePkgs.apps.marketplace
-    ];
-  };
+  enabledCustomApps = with spicePkgs.apps; [
+    marketplace
+  ];
+
+  enabledExtensions = with spicePkgs.extensions; [
+    # your extensions
+  ];
+};
 }
