@@ -19,8 +19,6 @@ in
   programs.spicetify = {
     enable = true;
 
-    theme = spicePkgs.themes.marketplace;
-
     enabledExtensions = with spicePkgs.extensions; [
       shuffle
       seekSong
