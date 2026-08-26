@@ -17,26 +17,22 @@ in
   programs.home-manager.enable = true;
 
   programs.spicetify = {
-  enable = true;
+    enable = true;
 
-  # Choose any bundled theme directly:
-  theme = spicePkgs.themes.catppuccin;
-  colorScheme = "mocha";
+    # Create a dummy theme package named "marketplace" so Spicetify's config sets current_theme = marketplace
+    theme = pkgs.runCommand "marketplace" {} ''
+      mkdir -p $out
+      touch $out/color.ini
+      touch $out/user.css
+    '';
 
-  enabledCustomApps = with spicePkgs.apps; [
-    marketplace
-  ];
+    enabledCustomApps = with spicePkgs.apps; [
+      marketplace
+    ];
 
-  enabledExtensions = with spicePkgs.extensions; [
-    # your extensions
-  ];
-
-  spicetifyConfig = {
-    current_theme = "marketplace";
-    color_scheme = "";
-    inject_css = true;
-    replace_colors = true;
-    overwrite_assets = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      # your extensions here
+    ];
   };
 };
 }
