@@ -19,19 +19,22 @@ in
   programs.spicetify = {
     enable = true;
 
-    # Create a dummy theme package named "marketplace" so Spicetify's config sets current_theme = marketplace
-    theme = pkgs.runCommand "marketplace" {} ''
-      mkdir -p $out
-      touch $out/color.ini
-      touch $out/user.css
-    '';
+    theme = {
+      name = "marketplace";
+      src = pkgs.runCommand "marketplace-dummy-src" {} ''
+        mkdir -p $out
+        touch $out/color.ini
+        touch $out/user.css
+      '';
+      appendName = false;
+    };
 
     enabledCustomApps = with spicePkgs.apps; [
       marketplace
     ];
 
     enabledExtensions = with spicePkgs.extensions; [
-      # your extensions here
+      # your extensions
     ];
   };
 }
