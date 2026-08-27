@@ -65,6 +65,7 @@ in {
     heroic
     mangohud
     gamescope
+    prismlauncher
 
     # Networking & Sync
     syncthing
