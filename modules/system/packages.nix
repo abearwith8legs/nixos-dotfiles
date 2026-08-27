@@ -41,6 +41,7 @@ in {
     feishin
     spotatui
     imgbrd-grabber
+    thunderbird
 
     # Development & Runtimes
     pythonEnv
