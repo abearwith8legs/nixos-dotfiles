@@ -43,6 +43,7 @@ in {
     imgbrd-grabber
     thunderbird
     easyeffects
+    qgis
 
     # Development & Runtimes
     pythonEnv
