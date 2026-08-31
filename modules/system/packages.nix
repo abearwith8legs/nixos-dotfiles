@@ -42,8 +42,7 @@ in {
     spotatui
     imgbrd-grabber
     thunderbird
-    easyeffects
-    qgis
+    gimp
 
     # Development & Runtimes
     pythonEnv
