@@ -114,5 +114,10 @@ in {
     emacs
     helix
     neovim
+
+    # Music
+    reaper
+    reaper-reapack-extension
+    reaper-sws-extension
   ];
 }
