@@ -68,7 +68,7 @@ in {
     mangohud
     gamescope
     prismlauncher
-    nexusmods-app-unfree
+    limo
 
     # Networking & Sync
     syncthing
