@@ -19,8 +19,8 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 60723 ]; # Replace with your qBittorrent listening port
-    allowedUDPPorts = [ 60723 ];
+    allowedTCPPorts = [ 60723 12345 ];
+    allowedUDPPorts = [ 60723 12345 ];
   };
 
   # Network proxy

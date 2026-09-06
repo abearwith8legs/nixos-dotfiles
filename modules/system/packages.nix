@@ -68,6 +68,7 @@ in {
     mangohud
     gamescope
     prismlauncher
+    nexusmods-app-unfree
 
     # Networking & Sync
     syncthing
