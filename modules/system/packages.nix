@@ -26,7 +26,7 @@ in {
   ];
 
   environment.systemPackages = with pkgs; [
-    # Desktop & Productivity
+    # Desktop
     floorp-bin
     brave
     kdePackages.okular
@@ -43,6 +43,7 @@ in {
     imgbrd-grabber
     thunderbird
     gimp
+    anki
 
     # Development & Runtimes
     pythonEnv
