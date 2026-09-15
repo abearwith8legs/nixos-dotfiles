@@ -68,7 +68,6 @@ in {
     heroic
     mangohud
     gamescope
-    prismlauncher
     limo
 
     # Prism Java
