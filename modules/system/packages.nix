@@ -48,6 +48,7 @@ in {
     # Development & Runtimes
     pythonEnv
     temurin-bin
+    jEnv
 
     # Disk & Boot Management
     efibootmgr
