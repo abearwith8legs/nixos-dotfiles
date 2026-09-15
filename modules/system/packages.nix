@@ -72,8 +72,6 @@ in {
     limo
 
     # Prism Java
-    environment.systemPackages = with pkgs; [
-    # Replace plain `prismlauncher` with this override:
     (prismlauncher.override {
       jdks = [
         temurin-bin-8
