@@ -48,7 +48,6 @@ in {
     # Development & Runtimes
     pythonEnv
     temurin-bin
-    jEnv
 
     # Disk & Boot Management
     efibootmgr
@@ -71,6 +70,17 @@ in {
     gamescope
     prismlauncher
     limo
+
+    # Prism Java
+    environment.systemPackages = with pkgs; [
+    # Replace plain `prismlauncher` with this override:
+    (prismlauncher.override {
+      jdks = [
+        temurin-bin-8
+        temurin-bin-17
+        temurin-bin-21
+      ];
+    })
 
     # Networking & Sync
     syncthing
