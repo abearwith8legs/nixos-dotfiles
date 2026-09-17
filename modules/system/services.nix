@@ -52,6 +52,7 @@
     };
   };
 
+  # Reaper
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -66,6 +67,14 @@
     { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
     { domain = "@audio"; item = "nice"; type = "-"; value = "-19"; }
   ];
+  services.pipewire.extraConfig.pipewire."92-low-latency" = {
+    "context.properties" = {
+      "default.clock.rate" = 48000;
+      "default.clock.quantum" = 128;
+      "default.clock.min-quantum" = 32;
+      "default.clock.max-quantum" = 512;
+    };
+  };
 
   # Enable CUPS and add the Epson ESC/P-R driver
   services.printing = {
