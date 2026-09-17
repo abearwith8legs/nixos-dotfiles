@@ -5,7 +5,7 @@
   users.users.rowan = {
     isNormalUser = true;
     description = "rowan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     uid = 1000;
     shell = pkgs.fish;
   };

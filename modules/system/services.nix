@@ -66,7 +66,6 @@
     { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
     { domain = "@audio"; item = "nice"; type = "-"; value = "-19"; }
   ];
-  users.users.rowan.extraGroups = [ "audio" ];
 
   # Enable CUPS and add the Epson ESC/P-R driver
   services.printing = {
