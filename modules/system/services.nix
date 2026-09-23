@@ -96,7 +96,6 @@
     enable = true;
     extraBackends = with pkgs; [
       epkowa
-      utsushi
       sane-airscan
     ];
   };
