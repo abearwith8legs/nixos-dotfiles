@@ -6,7 +6,17 @@
 
   # Connectivity
   services.openssh.enable = true;
-  services.blueman.enable = true;
+
+  # Bluetooth (BlueZ)
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true; # Exposes battery levels to Plasma
+      };
+    };
+  };
 
   # Syncthing
   services.syncthing = {
