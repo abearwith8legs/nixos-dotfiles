@@ -6,7 +6,6 @@ in
 {
   imports = [
     ./shell.nix
-    ./ship-theme
   ];
 
   home.username = "rowan";
