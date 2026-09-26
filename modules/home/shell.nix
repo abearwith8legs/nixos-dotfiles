@@ -4,12 +4,22 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      full-rebuild = "git -C /etc/nixos add -A; git -C /etc/nixos commit -m 'System update'; sudo nixos-rebuild switch --flake /etc/nixos#beenixos && git -C /etc/nixos push";
+      # Local test rebuild (stages files so the flake evaluator sees untracked nix files)
       rebuild = "git -C /etc/nixos add -A && sudo nixos-rebuild switch --flake /etc/nixos#beenixos";
+
+      # Everyday sync: build & switch first; if successful, commit and push to remote for the laptop
+      full-rebuild = "git -C /etc/nixos add -A && sudo nixos-rebuild switch --flake /etc/nixos#beenixos && git -C /etc/nixos commit -m 'System update' && git -C /etc/nixos push";
+
+      # Upstream upgrade: updates flake.lock (Mesa, kernel, packages), builds, commits lockfile, pushes
+      update-rebuild = "nix flake update --flake /etc/nixos && git -C /etc/nixos add -A && sudo nixos-rebuild switch --flake /etc/nixos#beenixos && git -C /etc/nixos commit -m 'Update flake inputs' && git -C /etc/nixos push";
+
+      # Pull remote changes from other host and switch
       sync-rebuild = "git -C /etc/nixos pull && rebuild";
+
+      # Git helpers
       git-status = "git -C /etc/nixos status";
-      git-push = "git -C /etc/nixos push";
-      git-pull = "git -C /etc/nixos pull";
+      git-push   = "git -C /etc/nixos push";
+      git-pull   = "git -C /etc/nixos pull";
     };
   };
 

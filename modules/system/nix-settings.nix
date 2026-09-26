@@ -11,6 +11,14 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  # AMD GPU / Hardware Acceleration
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; # Needed for Steam and 32-bit Wine/Proton games
+  };
+  hardware.enableRedistributableFirmware = true;
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   # swapDevices and powerManagement.cpuFreqGovernor are host-specific —
   # swap size depends on disk headroom and governor depends on whether
   # the machine is on battery. Set both in hosts/<host>/configuration.nix.
