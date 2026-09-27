@@ -39,4 +39,20 @@
     fsType = "ntfs3";
     options = [ "force" "nofail" ];
   };
+
+  fileSystems."/mnt/zima-music" = {
+  device = "rowan@192.168.1.52:/media/HDD-Storage/Media/Music";
+  fsType = "fuse.sshfs";
+  options = [
+    "IdentityFile=/home/rowan/.ssh/id_ed25519"
+    "allow_other"
+    "reconnect"
+    "ServerAliveInterval=15"
+    "ServerAliveCountMax=3"
+    "x-systemd.automount"
+    "noauto"
+    "x-systemd.idle-timeout=60"
+    "_netdev"
+  ];
+};
 }

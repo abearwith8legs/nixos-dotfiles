@@ -78,4 +78,6 @@
 
   # Ensure user is in lp and scanner groups
   users.users.rowan.extraGroups = [ "lp" "scanner" ];
+
+  services.gnome.gnome-keyring.enable = true;
 }

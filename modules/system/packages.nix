@@ -26,51 +26,45 @@ in {
   ];
 
   environment.systemPackages = with pkgs; [
-    # Desktop
-    floorp-bin
+    # --- Web & Communication ---
     brave
+    floorp-bin
+    stoat-desktop
+    thunderbird
+    vesktop
+    zoom-us
+
+    # --- Office, Notes & Productivity ---
+    anki
     kdePackages.okular
     libreoffice
     obsidian
-    vesktop
-    stoat-desktop
-    pinta
-    zoom-us
-    krita
-    inkscape
-    feishin
-    spotatui
-    imgbrd-grabber
-    thunderbird
+
+    # --- Graphics & Design ---
     gimp
-    anki
+    imgbrd-grabber
+    inkscape
+    krita
+    pinta
 
-    # Development & Runtimes
-    pythonEnv
-    temurin-bin
+# --- Media, Audio & TTS ---
+    alsa-utils
+    beets
+    feishin
+    mpv
+    picard
+    piper-tts
+    puddletag
+    speechd
+    spotatui
 
-    # Disk & Boot Management
-    efibootmgr
-    gparted
-    grub2_efi
-    ntfs3g
-    os-prober
-    parted
-
-    # Gaming & Emulation
-    lutris
-    wine
-    winetricks
-    r2modman
+    # --- Gaming & Launchers ---
     deadlock-mod-manager
-    mudlet
     gargoyle
     heroic
-    mangohud
-    gamescope
-    limo
-
-    # Prism Java
+    lutris
+    mudlet
+    r2modman
     (prismlauncher.override {
       jdks = [
         temurin-bin-8
@@ -79,49 +73,64 @@ in {
       ];
     })
 
-    # Networking & Sync
-    syncthing
-    wget
-    qbittorrent
+    # --- Gaming Utilities & Compatibility ---
+    gamescope
+    limo
+    mangohud
+    protonup-qt
+    wine
+    winetricks
 
-    # Shell & Terminal Tools
+    # --- Text Editors & IDEs ---
+    emacs
+    geany
+    helix
+    micro
+    neovim
+    vscodium
+
+    # --- Development & Languages ---
+    android-tools
+    git
+    jq
+    pythonEnv
+    temurin-bin
+
+    # --- Terminal Core & CLI Utilities ---
     fish
     htop
+    innoextract
+    ouch
     starship
     wezterm
+    wget
 
-    # Shell Candy
+    # --- Terminal Candy (Visuals) ---
+    asciiquarium
+    cava
     cbonsai
     fastfetch
-    unimatrix
-    asciiquarium
-    tenki
-    cava
     lavat
+    tenki
+    unimatrix
 
-    # System Utilities
-    glmark2
-    inputs.nix-software-center.packages.${pkgs.stdenv.hostPlatform.system}.nix-software-center
-    pciutils
-    ouch
-    git
+    # --- System Management & GUI Tools ---
     fsearch
-    innoextract
-    speechd
-    piper-tts
-    alsa-utils
-    jq
-    protonup-qt
-    mpv
-    android-tools
-    ookla-speedtest
+    inputs.nix-software-center.packages.${pkgs.stdenv.hostPlatform.system}.nix-software-center
 
-    # Text & Code Editors
-    micro
-    vscodium
-    geany
-    emacs
-    helix
-    neovim
+    # --- Disk, Hardware & Boot ---
+    efibootmgr
+    glmark2
+    gparted
+    grub2_efi
+    ntfs3g
+    os-prober
+    parted
+    pciutils
+
+    # --- Networking & P2P ---
+    ookla-speedtest
+    qbittorrent
+    syncthing
   ];
 }
