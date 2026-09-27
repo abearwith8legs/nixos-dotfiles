@@ -23,7 +23,7 @@
 
       # Beets (VGMdb-enabled) — runs the persistent venv's binary directly,
       # no manual activate/deactivate needed
-      beet = "~/.local/share/beets-env/bin/beet";
+      beet = "env LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib ~/.local/share/beets-env/bin/beet";
     };
   };
 
