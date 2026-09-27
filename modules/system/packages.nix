@@ -50,6 +50,7 @@ in {
 # --- Media, Audio & TTS ---
     alsa-utils
     beets
+    chromaprint
     feishin
     mpv
     picard
@@ -94,6 +95,7 @@ in {
     git
     jq
     pythonEnv
+    python3Packages.virtualenv
     temurin-bin
 
     # --- Terminal Core & CLI Utilities ---
@@ -131,6 +133,7 @@ in {
     # --- Networking & P2P ---
     ookla-speedtest
     qbittorrent
+    sshfs
     syncthing
   ];
 }

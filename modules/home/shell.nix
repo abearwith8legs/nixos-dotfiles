@@ -20,6 +20,10 @@
       git-status = "git -C /etc/nixos status";
       git-push   = "git -C /etc/nixos push";
       git-pull   = "git -C /etc/nixos pull";
+
+      # Beets (VGMdb-enabled) — runs the persistent venv's binary directly,
+      # no manual activate/deactivate needed
+      beet = "~/.local/share/beets-env/bin/beet";
     };
   };
 
