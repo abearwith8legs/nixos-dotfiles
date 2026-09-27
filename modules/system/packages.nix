@@ -51,6 +51,7 @@ in {
     alsa-utils
     beets
     chromaprint
+    ffmpeg
     feishin
     mpv
     picard
