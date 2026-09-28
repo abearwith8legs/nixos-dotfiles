@@ -59,6 +59,7 @@ in {
     puddletag
     speechd
     spotatui
+    newsflash
 
     # --- Gaming & Launchers ---
     deadlock-mod-manager
