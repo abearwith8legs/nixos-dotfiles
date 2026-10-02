@@ -46,6 +46,7 @@ in {
     inkscape
     krita
     pinta
+    qgis
 
 # --- Media, Audio & TTS ---
     alsa-utils
