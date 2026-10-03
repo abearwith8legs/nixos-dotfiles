@@ -18,6 +18,7 @@
     ../../modules/system/services.nix
     ../../modules/system/users.nix
     ../../modules/system/reaper.nix
+    ../../modules/system/vr.nix
 
     ./desktop.nix
     ./filesystems.nix
