@@ -8,5 +8,5 @@
     steam.importOXRRuntimes = true;
   };
 
-  environment.systemPackages = [ pkgs.xrizer ];
+  environment.systemPackages = [ pkgs.xrizer pkgs.wayvr ];
 }
