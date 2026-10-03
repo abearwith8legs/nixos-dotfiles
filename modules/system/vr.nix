@@ -7,4 +7,6 @@
     autoStart = true;
     steam.importOXRRuntimes = true;
   };
+
+  environment.systemPackages = [ pkgs.xrizer ];
 }
