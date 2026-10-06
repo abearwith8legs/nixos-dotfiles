@@ -17,7 +17,7 @@
 
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix"; # Changed Geri3r -> Gerg-L
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

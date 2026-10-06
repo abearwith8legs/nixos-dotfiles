@@ -40,6 +40,12 @@
         show_always = true;
       };
 
+      hostname = {
+        ssh_only = true; # Set to false if you want it visible on local sessions too
+        format = "[@$hostname]($style) ";
+        style = "dimmed green";
+      };
+
       time = {
         disabled = false;
         format = "[$time](dimmed green)";
@@ -86,6 +92,26 @@
         staged = "+";
         renamed = "r";
         deleted = "x";
+      };
+
+      nix_shell = {
+        symbol = "❄️ "; # or "nix:" if avoiding glyphs
+        format = "via [$symbol$state( \\($name\\))]($style) ";
+        style = "bold blue";
+      };
+
+      status = {
+        disabled = false;
+        format = "[$symbol$status]($style) ";
+        symbol = "exit ";
+        style = "bold red";
+      };
+
+      jobs = {
+        threshold = 1;
+        symbol = "✦"; # or "&"
+        format = "[$symbol$number]($style) ";
+        style = "bold yellow";
       };
     };
   };

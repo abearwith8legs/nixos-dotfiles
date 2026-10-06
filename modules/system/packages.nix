@@ -100,6 +100,7 @@ in {
     pythonEnv
     python3Packages.virtualenv
     temurin-bin
+    racket
 
     # --- Terminal Core & CLI Utilities ---
     fish
