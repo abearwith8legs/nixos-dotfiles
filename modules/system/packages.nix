@@ -22,6 +22,22 @@ in {
           libName = "floorp-bin-${version}";
         };
       });
+
+      limo = prev.limo.overrideAttrs (oldAttrs: {
+        postPatch = (oldAttrs.postPatch or "") + ''
+          sed -i '1i #include <cstdint>' src/core/progressnode.h
+          sed -i '1i #include <cstdint>' src/core/installer.h
+          sed -i '1i #include <iomanip>' src/core/versionchangelog.h
+        '';
+      });
+
+      reaper-reapack-extension = prev.reaper-reapack-extension.overrideAttrs (oldAttrs: {
+        NIX_CFLAGS_COMPILE = (oldAttrs.NIX_CFLAGS_COMPILE or "") + " -Wno-error=deprecated";
+      });
+
+      reaper-sws-extension = prev.reaper-sws-extension.overrideAttrs (oldAttrs: {
+        NIX_CFLAGS_COMPILE = (oldAttrs.NIX_CFLAGS_COMPILE or "") + " -std=c++17 -Wno-error";
+      });
     })
   ];
 
@@ -48,7 +64,7 @@ in {
     pinta
     qgis
 
-# --- Media, Audio & TTS ---
+    # --- Media, Audio & TTS ---
     alsa-utils
     beets
     chromaprint
