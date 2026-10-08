@@ -117,6 +117,9 @@ in {
     python3Packages.virtualenv
     temurin-bin
     racket
+    nim
+    nimble
+    nimlsp
 
     # --- Terminal Core & CLI Utilities ---
     fish
