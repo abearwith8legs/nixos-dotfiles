@@ -40,8 +40,8 @@
     options = [ "force" "nofail" ];
   };
 
-  fileSystems."/mnt/zima-music" = {
-  device = "rowan@192.168.1.52:/media/HDD-Storage/Media/Music";
+  fileSystems."/mnt/zima-HDD" = {
+  device = "rowan@192.168.1.52:/media/HDD-Storage";
   fsType = "fuse.sshfs";
   options = [
     "IdentityFile=/home/rowan/.ssh/id_ed25519"
