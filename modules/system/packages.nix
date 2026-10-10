@@ -55,7 +55,6 @@ in {
     kdePackages.okular
     libreoffice
     obsidian
-    sc-im
 
     # --- Graphics & Design ---
     gimp
