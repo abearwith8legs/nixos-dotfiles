@@ -54,6 +54,7 @@ in {
     anki
     kdePackages.okular
     libreoffice
+    onlyoffice-desktopeditors
     obsidian
 
     # --- Graphics & Design ---
