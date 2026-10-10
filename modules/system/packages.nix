@@ -55,6 +55,7 @@ in {
     kdePackages.okular
     libreoffice
     obsidian
+    gnumeric
 
     # --- Graphics & Design ---
     gimp
