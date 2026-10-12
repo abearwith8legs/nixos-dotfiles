@@ -159,5 +159,9 @@ in {
     qbittorrent
     sshfs
     syncthing
+
+    # --- Conlang ---
+    praat
+
   ];
 }
