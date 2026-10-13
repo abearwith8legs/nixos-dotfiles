@@ -23,7 +23,7 @@
   # swap size depends on disk headroom and governor depends on whether
   # the machine is on battery. Set both in hosts/<host>/configuration.nix.
 
-  users.users.rowan.extraGroups = [ "adbusers" "video" ];
+  users.users.rowan.extraGroups = [ "adbusers" "video" "audio" "realtime" ];
 
   environment.sessionVariables = {
     XCOMPOSEFILE = "${pkgs.keyd}/share/keyd/keyd.compose";

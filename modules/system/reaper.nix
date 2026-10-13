@@ -1,103 +1,71 @@
 { config, pkgs, lib, ... }:
 
 let
-  # Dedicated directory for plugin scan paths and Wine bridge prefixes
-  audioPluginPaths = [
+  vst2Paths = [
     "$HOME/.vst"
-    "$HOME/.vst3"
-    "$HOME/.clap"
-    "$HOME/.lxvst"
     "/run/current-system/sw/lib/vst"
+    "/mnt/huge-boi/Reaper Stuff/Linux_Plugins/vst2"
+  ];
+
+  vst3Paths = [
+    "$HOME/.vst3"
     "/run/current-system/sw/lib/vst3"
+    "/mnt/huge-boi/Reaper Stuff/Linux_Plugins/vst3"
+  ];
+
+  clapPaths = [
+    "$HOME/.clap"
     "/run/current-system/sw/lib/clap"
+    "/mnt/huge-boi/Reaper Stuff/Linux_Plugins/clap"
   ];
 in
 {
   # ---------------------------------------------------------------------------
-  # 1. Real-time Audio & Limits
-  # ---------------------------------------------------------------------------
-  security.rtkit.enable = true;
-
-  security.pam.loginLimits = [
-    { domain = "@audio"; item = "rtprio"; type = "-"; value = "95"; }
-    { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
-    { domain = "@audio"; item = "nofile";  type = "-"; value = "524288"; }
-  ];
-
-  # ---------------------------------------------------------------------------
-  # 2. PipeWire / JACK Low-Latency Configuration
-  # ---------------------------------------------------------------------------
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-
-    # Low-latency buffer tuning for real-time monitoring
-    extraConfig.pipewire."92-low-latency" = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 128;
-        "default.clock.min-quantum" = 64;
-        "default.clock.max-quantum" = 1024;
-      };
-    };
-  };
-
-  # ---------------------------------------------------------------------------
-  # 3. Packages: Host DAW, Bridging, Utilities & Native Plugins
+  # 1. Packages: REAPER, Bridging Tools & Native Synths
   # ---------------------------------------------------------------------------
   environment.systemPackages = with pkgs; [
-    # DAW
+    # Host DAW
     reaper
-    reaper-reapack-extension
-    reaper-sws-extension
 
-    # Bridging tools for Windows VST2 / VST3 / CLAP
+    # Bridging tools for Windows VSTs (Valhalla, etc.)
     yabridge
     yabridgectl
     wineWow64Packages.staging
 
-    # Graph routing, diagnostics & monitoring
+    # Diagnostics & Monitoring
     qpwgraph
     pavucontrol
 
-    # Native Linux audio plugins
+    # Native plugins
     lsp-plugins
     calf
     airwindows
+    dexed
+    chow-centaur
+    vital
+    decent-sampler
   ];
 
   # ---------------------------------------------------------------------------
-  # 4. Standard Audio Environment Variables
+  # 2. Plugin Search Paths & yabridge Environment
   # ---------------------------------------------------------------------------
-  # Exposes standardized plugin environment paths across shells and REAPER
   environment.sessionVariables = {
-    VST_PATH = lib.concatStringsSep ":" [
-      "$HOME/.vst"
-      "/run/current-system/sw/lib/vst"
-    ];
-    VST3_PATH = lib.concatStringsSep ":" [
-      "$HOME/.vst3"
-      "/run/current-system/sw/lib/vst3"
-    ];
-    CLAP_PATH = lib.concatStringsSep ":" [
-      "$HOME/.clap"
-      "/run/current-system/sw/lib/clap"
-    ];
-    # Force yabridge notifications to quiet mode if preferred, or leave default
+    VST_PATH  = lib.concatStringsSep ":" vst2Paths;
+    VST3_PATH = lib.concatStringsSep ":" vst3Paths;
+    CLAP_PATH = lib.concatStringsSep ":" clapPaths;
     YABRIDGE_DEBUG_LEVEL = "0";
   };
 
   # ---------------------------------------------------------------------------
-  # 5. Helper Script: Initialize Directories & yabridge Paths
+  # 3. Shell Aliases
   # ---------------------------------------------------------------------------
-  # Run `init-reaper-audio` once to set up directory structures and bridge paths
   environment.shellAliases = {
     reaper-resync = "yabridgectl sync";
   };
 
+  # ---------------------------------------------------------------------------
+  # 4. User Directory Initialization
+  # ---------------------------------------------------------------------------
   systemd.user.services.reaper-plugin-dirs = {
     description = "Ensure standard user plugin and REAPER directories exist";
     wantedBy = [ "default.target" ];
@@ -111,6 +79,9 @@ in
         mkdir -p $HOME/.config/REAPER/Effects
         mkdir -p "$HOME/.wine/drive_c/Program Files/Vstplugins"
         mkdir -p "$HOME/.wine/drive_c/Program Files/Common Files/VST3"
+        mkdir -p "/mnt/huge-boi/Reaper Stuff/Linux_Plugins/vst2"
+        mkdir -p "/mnt/huge-boi/Reaper Stuff/Linux_Plugins/vst3"
+        mkdir -p "/mnt/huge-boi/Reaper Stuff/Linux_Plugins/clap"
       '';
     };
   };
