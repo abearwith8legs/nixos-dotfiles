@@ -93,6 +93,7 @@ in {
         temurin-bin-21
       ];
     })
+    waydroid
 
     # --- Gaming Utilities & Compatibility ---
     gamescope
