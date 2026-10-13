@@ -38,6 +38,25 @@ in {
       reaper-sws-extension = prev.reaper-sws-extension.overrideAttrs (oldAttrs: {
         NIX_CFLAGS_COMPILE = (oldAttrs.NIX_CFLAGS_COMPILE or "") + " -std=c++17 -Wno-error";
       });
+
+      polyglot = prev.polyglot.overrideAttrs (oldAttrs: {
+        nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.makeWrapper ];
+        postInstall = (oldAttrs.postInstall or "") + ''
+          wrapProgram $out/bin/PolyGlot \
+            --prefix LD_LIBRARY_PATH : ${final.lib.makeLibraryPath [
+              final.glib
+              final.gtk3
+              final.cairo
+              final.pango
+              final.gdk-pixbuf
+              final.atk
+              final.libGL
+              final.xorg.libX11
+              final.xorg.libXtst
+              final.xorg.libXxf86vm
+            ]}
+        '';
+      });
     })
   ];
 
@@ -166,6 +185,5 @@ in {
     # --- Conlang ---
     praat
     polyglot
-
   ];
 }
