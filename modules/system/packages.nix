@@ -122,6 +122,8 @@ in {
     nim
     nimble
     nimlsp
+    sqlite
+    pcre
 
     # --- Terminal Core & CLI Utilities ---
     fish
