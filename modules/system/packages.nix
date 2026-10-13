@@ -163,6 +163,7 @@ in {
 
     # --- Conlang ---
     praat
+    polyglot
 
   ];
 }
