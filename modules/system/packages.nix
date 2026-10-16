@@ -75,6 +75,7 @@ in {
     libreoffice
     onlyoffice-desktopeditors
     obsidian
+    pdfarranger
 
     # --- Graphics & Design ---
     gimp
