@@ -51,9 +51,9 @@ in {
               final.gdk-pixbuf
               final.atk
               final.libGL
-              final.xorg.libX11
-              final.xorg.libXtst
-              final.xorg.libXxf86vm
+              final.libX11
+              final.libXtst
+              final.libXxf86vm
             ]}
         '';
       });

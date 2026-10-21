@@ -63,8 +63,11 @@
   # Network printer autodiscovery (essential for Wi-Fi printing)
   services.avahi = {
     enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+    settings.publish = {
+      "disable-publishing" = false;
+      disable-user-service-publishing = false;
+      publish-addresses = true;
+    };
   };
 
   # Enable SANE scanner support (XP-4200 is an all-in-one)
