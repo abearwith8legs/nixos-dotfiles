@@ -23,12 +23,6 @@
       # --- Linguistics & Complex Scripts ---
       andika
       noto-fonts-cjk-sans
-
-      # --- Font Creation & Inspection Tools ---
-      fontforge-gtk
-      python3Packages.fonttools
-      python3Packages.fontforge
-      harfbuzz
     ];
   };
 }

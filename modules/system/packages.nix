@@ -184,5 +184,9 @@ in {
     # --- Conlang ---
     praat
     polyglot
+    fontforge-gtk
+    python3Packages.fonttools
+    python3Packages.fontforge
+    harfbuzz
   ];
 }
