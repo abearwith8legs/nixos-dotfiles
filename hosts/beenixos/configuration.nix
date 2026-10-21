@@ -19,6 +19,7 @@
     ../../modules/system/users.nix
     ../../modules/system/reaper.nix
     ../../modules/system/vr.nix
+    ../../modules/system/fonts.nix
 
     ./desktop.nix
     ./filesystems.nix

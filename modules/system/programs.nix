@@ -69,7 +69,7 @@
 
   programs.steam.protontricks.enable = true;
 
-  programs.droidcam.enable = true;
+  # programs.droidcam.enable = true;
 
   programs.dconf.enable = true;
   programs.dconf.profiles.user.databases = [
