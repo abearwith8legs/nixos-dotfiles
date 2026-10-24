@@ -116,7 +116,6 @@ in {
     # --- Gaming Utilities & Compatibility ---
     gamescope
     limo
-    mangohud
     protonup-qt
     wine
     winetricks

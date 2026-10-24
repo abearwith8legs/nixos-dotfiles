@@ -54,7 +54,7 @@
     enable = true;
     settings = {
       general = {
-        desiredgov = "powersave";
+        desiredgov = "performance";
       };
     };
   };
