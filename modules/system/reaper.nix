@@ -1,6 +1,15 @@
 { config, pkgs, lib, ... }:
 
 let
+  # 1. Define a stable package set for REAPER fallback
+  stablePkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz";
+    sha256 = "0zydsqiaz8qi4zd63zsb2gij2p614cgkcaisnk11wjy3nmiq0x1s";
+  }) {
+    inherit (pkgs) system;
+    config.allowUnfree = true;
+  };
+
   vst2Paths = [
     "$HOME/.vst"
     "/run/current-system/sw/lib/vst"
@@ -24,8 +33,8 @@ in
   # 1. Packages: REAPER, Bridging Tools & Native Synths
   # ---------------------------------------------------------------------------
   environment.systemPackages = with pkgs; [
-    # Host DAW
-    reaper
+    # Host DAW (Pulled from stable)
+    stablePkgs.reaper
 
     # Bridging tools for Windows VSTs (Valhalla, etc.)
     yabridge
