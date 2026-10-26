@@ -84,6 +84,7 @@ in {
     krita
     pinta
     qgis
+    aseprite
 
     # --- Media, Audio & TTS ---
     alsa-utils
