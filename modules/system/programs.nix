@@ -68,11 +68,24 @@
 
     package = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
+        # CEF / Browser core
         nspr
         nss
+        # Accessibility & UI
+        atk
+        at-spi2-atk
+        at-spi2-core
+        # GTK & Rendering
+        gtk3
+        cairo
+        pango
+        gdk-pixbuf
+        # Audio & Input
         alsa-lib
         libxkbcommon
         wayland
+        dbus
+        libdrm
       ];
     };
   };
