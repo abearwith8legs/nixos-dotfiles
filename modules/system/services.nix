@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   # Enable udisks2 and gvfs for GUI auto-mounting in file managers
@@ -63,6 +63,11 @@
   # Network printer autodiscovery (essential for Wi-Fi printing)
   services.avahi = {
     enable = true;
+    nssmdns4 = true; # Needed for resolving .local printer hostnames over IPv4
+    publish = {
+      enable = lib.mkForce null;
+      userServices = lib.mkForce null;
+    };
     settings.publish = {
       "disable-publishing" = false;
       disable-user-service-publishing = false;

@@ -28,7 +28,6 @@
     # gets the same home-manager wiring (plasma-manager, spicetify) —
     # what differs per host lives in hosts/<hostname>/.
     mkHost = hostname: nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/${hostname}/hardware-configuration.nix
