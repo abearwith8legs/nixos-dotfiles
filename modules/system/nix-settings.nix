@@ -7,6 +7,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-3.18.0-unstable-2024-04-18"
+    "googleearth-pro-7.3.7.1155"
   ];
 
   boot.supportedFilesystems = [ "ntfs" ];

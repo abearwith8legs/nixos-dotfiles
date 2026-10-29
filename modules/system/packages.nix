@@ -76,6 +76,7 @@ in {
     onlyoffice-desktopeditors
     obsidian
     pdfarranger
+    googleearth-pro
 
     # --- Graphics & Design ---
     gimp
