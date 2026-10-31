@@ -143,7 +143,7 @@ in {
     nimble
     nimlsp
     sqlite
-    pcre
+    pcre2
 
     # --- Terminal Core & CLI Utilities ---
     fish
