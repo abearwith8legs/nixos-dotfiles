@@ -166,6 +166,7 @@ in {
     # --- System Management & GUI Tools ---
     fsearch
     inputs.nix-software-center.packages.${pkgs.stdenv.hostPlatform.system}.nix-software-center
+    wl-clipboard
 
     # --- Disk, Hardware & Boot ---
     efibootmgr

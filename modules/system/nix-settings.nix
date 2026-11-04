@@ -30,6 +30,9 @@
     XCOMPOSEFILE = "${pkgs.keyd}/share/keyd/keyd.compose";
   };
 
+  virtualisation.waydroid.enable = true;
+  
+
   # Experimental
   nix.extraOptions = "experimental-features = nix-command flakes";
 
