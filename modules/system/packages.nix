@@ -100,7 +100,6 @@ in {
     newsflash
 
     # --- Gaming & Launchers ---
-    deadlock-mod-manager
     gargoyle
     heroic
     lutris
