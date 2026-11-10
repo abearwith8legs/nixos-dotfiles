@@ -113,6 +113,7 @@ in {
       ];
     })
     waydroid
+    minion
 
     # --- Gaming Utilities & Compatibility ---
     gamescope
