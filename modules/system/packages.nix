@@ -113,7 +113,7 @@ in {
       ];
     })
     waydroid
-    minion
+    beammp-launcher
 
     # --- Gaming Utilities & Compatibility ---
     gamescope
