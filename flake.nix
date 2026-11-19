@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nix-citizen.url = "github:LovingMelody/nix-citizen";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,16 +26,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-software-center, spicetify-nix, ... }@inputs:
+  # Make sure nix-citizen is explicitly destructured here:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-software-center, spicetify-nix, nix-citizen, ... }@inputs:
   let
-    # Builds one nixosConfigurations entry from a hostname. Every host
-    # gets the same home-manager wiring (plasma-manager, spicetify) —
-    # what differs per host lives in hosts/<hostname>/.
     mkHost = hostname: nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/${hostname}/hardware-configuration.nix
         ./hosts/${hostname}/configuration.nix
+
+        # Now nix-citizen is recognized in scope:
+        nix-citizen.nixosModules.default
 
         home-manager.nixosModules.home-manager
         {
@@ -52,7 +57,7 @@
   in {
     nixosConfigurations = {
       beenixos = mkHost "beenixos";
-      beepd = mkHost "beepd"; # the laptop
+      beepd = mkHost "beepd";
     };
   };
 }

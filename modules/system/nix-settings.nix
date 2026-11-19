@@ -3,7 +3,19 @@
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.trusted-users = [ "root" "rowan" ];
+  nix.settings = {
+    trusted-users = [ "root" "rowan" ];
+
+    # Cachix binary caches to avoid compiling wine-astral from source
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-citizen.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
+    ];
+  };
 
   nixpkgs.config.permittedInsecurePackages = [
     "freeimage-3.18.0-unstable-2024-04-18"
