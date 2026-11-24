@@ -77,6 +77,12 @@ in {
     obsidian
     pdfarranger
     googleearth-pro
+    (qgis.override {
+      extraPythonPackages = (ps: with ps; [
+        matplotlib
+        scipy
+      ]);
+    })
 
     # --- Graphics & Design ---
     gimp
@@ -84,7 +90,6 @@ in {
     inkscape
     krita
     pinta
-    qgis
     aseprite
 
     # --- Media, Audio & TTS ---
