@@ -77,11 +77,21 @@ in {
     obsidian
     pdfarranger
     googleearth-pro
-    (qgis.override {
-      extraPythonPackages = (ps: with ps; [
-        matplotlib
-        scipy
-      ]);
+   (pkgs.symlinkJoin {
+      name = "qgis-wrapped";
+      paths = [
+        (pkgs.qgis.override {
+          extraPythonPackages = (ps: with ps; [
+            matplotlib
+            scipy
+          ]);
+        })
+      ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/qgis \
+          --set QT_QPA_PLATFORM xcb
+      '';
     })
 
     # --- Graphics & Design ---
