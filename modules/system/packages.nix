@@ -194,6 +194,8 @@ in {
     pciutils
 
     # --- Networking & P2P ---
+    dnsmasq
+    iptables
     ookla-speedtest
     qbittorrent
     sshfs
