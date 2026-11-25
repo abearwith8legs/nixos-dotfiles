@@ -7,19 +7,24 @@
 
   services.flatpak.enable = true;
 
-services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
-  "context.properties" = {
-    # Global PipeWire-Pulse properties
-  };
-  "pulse.properties" = {
-    "pulse.min.req" = "1024/48000";
-    "pulse.default.req" = "1024/48000";
-    "pulse.max.req" = "1024/48000";
-    "pulse.min.quantum" = "1024/48000";
-  };
-  "stream.properties" = {
-    "node.latency" = "1024/48000";
-    "resample.quality" = 1;
+services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  pulse.enable = true;
+
+  extraConfig.pipewire-pulse."92-low-latency" = {
+    "context.properties" = { };
+    "pulse.properties" = {
+      "pulse.min.req" = "1024/48000";
+      "pulse.default.req" = "1024/48000";
+      "pulse.max.req" = "1024/48000";
+      "pulse.min.quantum" = "1024/48000";
+    };
+    "stream.properties" = {
+      "node.latency" = "1024/48000";
+      "resample.quality" = 1;
+    };
   };
 };
 
