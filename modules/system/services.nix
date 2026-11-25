@@ -7,25 +7,21 @@
 
   services.flatpak.enable = true;
 
-  services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
-    "context.properties" = [
-      {
-        name = "libpipewire-module-protocol-pulse";
-        args = { };
-      }
-    ];
-    "pulse.properties" = {
-      "pulse.min.req" = "1024/48000";
-      "pulse.default.req" = "1024/48000";
-      "pulse.max.req" = "1024/48000";
-      "pulse.min.quantum" = "1024/48000";
-      "pulse.max.quantum" = "1024/48000";
-    };
-    "stream.properties" = {
-      "node.latency" = "1024/48000";
-      "resample.quality" = 1;
-    };
+services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
+  "context.properties" = {
+    # Global PipeWire-Pulse properties
   };
+  "pulse.properties" = {
+    "pulse.min.req" = "1024/48000";
+    "pulse.default.req" = "1024/48000";
+    "pulse.max.req" = "1024/48000";
+    "pulse.min.quantum" = "1024/48000";
+  };
+  "stream.properties" = {
+    "node.latency" = "1024/48000";
+    "resample.quality" = 1;
+  };
+};
 
   services.keyd = {
     enable = true;
